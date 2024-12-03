@@ -1,0 +1,13 @@
+# This compose file is made to replicate a development environment.
+# Use the docker container in production
+
+services:
+  komma:
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    environment:
+      - port=80
+
+    ports:
+      - 5000:80

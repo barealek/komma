@@ -13,7 +13,9 @@ type mwm struct {
 // The middleware functions are applied in the order they are provided.
 //
 // pattern: The URL pattern to match.
+//
 // handler: The http.HandlerFunc to handle the request.
+//
 // mws: A variadic list of middleware functions to apply to the handler. The first element of the list will be the first invoked middleware.
 func (m *mwm) HandleFunc(pattern string, handler func(http.ResponseWriter, *http.Request), mws ...func(http.HandlerFunc) http.HandlerFunc) {
 	var h func(http.ResponseWriter, *http.Request) = handler
